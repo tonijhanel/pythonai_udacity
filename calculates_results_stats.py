@@ -77,7 +77,8 @@ def calculates_results_stats(results_dic):
     results_stats_dic['n_match'] = 0
     results_stats_dic['n_correct_dogs'] = 0
     results_stats_dic['n_correct_notdogs'] = 0
-    results_stats_dic['n_correct_breed'] = 0       
+    results_stats_dic['n_correct_breed'] = 0    
+      
     
     # process through the results dictionary
     for key in results_dic:
@@ -106,6 +107,7 @@ def calculates_results_stats(results_dic):
             if results_dic[key][4] == 0:
                 results_stats_dic['n_correct_notdogs'] += 1
 
+        
 
     # Calculates run statistics (counts & percentages) below that are calculated
     # using the counters from above.
@@ -134,5 +136,8 @@ def calculates_results_stats(results_dic):
                                                 results_stats_dic['n_notdogs_img'])*100.0
     else:
         results_stats_dic['pct_correct_notdogs'] = 0.0
+
+    #Calculates % correct label matches
+    results_stats_dic['pct_correct_labels']  = (results_stats_dic['n_match'] / results_stats_dic['n_images'])*100.0
 
     return results_stats_dic
